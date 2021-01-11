@@ -1,5 +1,14 @@
 const sounds = ['applause', 'wrong', 'victory', 'boo', 'tada', 'gasp'];
 
+function stopSounds() {
+    sounds.forEach(sound => {
+        const song = document.getElementById(sound);
+
+        song.pause();
+        song.currentTime = 0;
+    })
+}
+
 sounds.forEach(sound => {
     const btn = document.createElement('button');
     btn.classList.add('btn');
@@ -7,8 +16,9 @@ sounds.forEach(sound => {
     btn.innerText = sound;
 
     btn.addEventListener('click', () => {
+        stopSounds()
         document.getElementById(sound).play()
     })
- const soundContainer = document.querySelector('.soundContainer')
- soundContainer.append(btn)
+    const soundContainer = document.querySelector('.soundContainer')
+    soundContainer.append(btn)
 })
